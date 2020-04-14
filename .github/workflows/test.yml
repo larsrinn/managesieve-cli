@@ -44,4 +44,4 @@ jobs:
 #        poetry run flake8 . --count --show-source --statistics
     - name: Run pytest
       shell: bash
-      run: poetry run pytest
+      run: poetry run pytest --junitxml=junit/test-results.xml
