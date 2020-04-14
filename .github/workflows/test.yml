@@ -40,7 +40,7 @@ jobs:
       run: poetry install
     - name: Lint with flake8
       run: |
-        flake8 . --count --show-source --statistics
+        poetry run flake8 . --count --show-source --statistics
     - name: Run pytest
       shell: bash
       run: poetry run pytest -q tests
