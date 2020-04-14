@@ -44,11 +44,10 @@ jobs:
 #        poetry run flake8 . --count --show-source --statistics
     - name: Run pytest
       shell: bash
-      run: poetry run pytest --junitxml=junit/test-results-${{ matrix.python-version }}.xml
+      run: poetry run pytest --html=pytest-report/report-${{ matrix.python-version }}.html
     - name: Upload pytest test results
       uses: actions/upload-artifact@master
       with:
-        name: pytest-results-${{ matrix.python-version }}
-        path: junit/test-results-${{ matrix.python-version }}.xml
-      # Use always() to always run this step to publish test results when there are test failures
+        name: pytest-report-${{ matrix.python-version }}
+        path: pytest-report
       if: always()
